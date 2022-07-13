@@ -1,0 +1,23 @@
+function onOpen() {
+  SpreadsheetApp.getUi() // Or DocumentApp or FormApp.
+  .createMenu('Custom Menu')
+  .addItem('Show alert', 'showAlert')
+  .addToUi();
+}
+function showAlert() {
+  var ui = SpreadsheetApp.getUi(); // Same variations.
+
+  var result = ui.alert(
+    'Please confirm' ,
+    'Are you sure want to continue?' ,
+    ui.Button.YES_NO);
+    
+    // Process the user response
+    if (result == ui.Button.YES) {
+      //user clicked "Yes"
+      ui.alert('Confirmation receive');
+    } else {
+      // user clicked "No" or X in the tittle bar.
+      ui.alert('Permission denied');
+    }
+}
